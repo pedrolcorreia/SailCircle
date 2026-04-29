@@ -1,91 +1,129 @@
-# ⛵ SailCircle
+# SailCircle — Sailing Social Platform MVP
 
-**A social platform for sailors to connect, plan trips, and explore the sea together.**
+This is a ready-to-upload MVP for a sailing community website.
 
----
+It includes:
 
-## 🌊 What is this?
-
-SailCircle is a modern web app designed to bring the sailing community together in one place.
-
-It allows sailors to:
-
-* 📍 Discover other sailors on a map
-* ⛵ Plan and join sailing trips
-* 🤝 Find crew or boats
-* 💬 Discuss routes, gear, and experiences
-
-Think of it as a mix of **Strava + Airbnb + LinkedIn — but for sailing**.
+- React frontend
+- Interactive OpenStreetMap map using Leaflet
+- Supabase backend schema
+- Sailor profiles
+- Trip planning and trip creation
+- Forum post data model
+- Demo mode if Supabase is not connected
 
 ---
 
-## 🚀 Features (MVP)
+## 1. Run locally
 
-* Interactive “map-style” sailor discovery
-* Trip planning and joining
-* Crew matching concept
-* Community forum
-* Modern, simple UI
+Install Node.js first.
 
----
+```bash
+npm install
+npm run dev
+```
 
-## 🧠 Purpose
-
-The goal of this project is to explore:
-
-* How sailors can connect more easily
-* Whether a social sailing network is valuable
-* How to reduce friction in finding crew and trips
+Open the local URL shown in your terminal.
 
 ---
 
-## ⚙️ Tech Stack
+## 2. Create the backend with Supabase
 
-* React (frontend)
-* Tailwind CSS (UI)
-* (Optional) Supabase (backend)
-* (Optional) Map integrations (Leaflet / Mapbox)
+1. Go to Supabase and create a free project.
+2. Open **SQL Editor**.
+3. Copy everything from:
 
----
+```bash
+supabase/schema.sql
+```
 
-## 🧪 Status
+4. Paste it into Supabase SQL Editor.
+5. Click **Run**.
 
-This is an **early prototype / MVP**
+This creates:
 
-* Uses demo data (frontend-only version)
-* Backend integration available but optional
+- `sailors`
+- `trips`
+- `forum_posts`
 
----
-
-## 💡 Vision
-
-Create a global platform where:
-
-* Sailors can meet others nearby
-* Trips are easy to organize
-* The sailing community becomes more accessible
+It also inserts sample data.
 
 ---
 
-## 📬 Feedback
+## 3. Connect the frontend to Supabase
 
-If you’re a sailor or just curious:
+1. In Supabase, go to:
 
-> Would you use something like this?
+```text
+Project Settings > API
+```
 
-Feel free to reach out or open an issue.
+2. Copy:
+
+- Project URL
+- anon public key
+
+3. Create a `.env` file in the project root:
+
+```bash
+cp .env.example .env
+```
+
+4. Paste your values:
+
+```env
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-public-key
+```
+
+5. Restart the app:
+
+```bash
+npm run dev
+```
 
 ---
 
-## ⚠️ Disclaimer
+## 4. Deploy for free on Vercel
 
-This is an experimental project and not production-ready.
-Safety, privacy, and verification systems are not yet implemented.
+1. Upload this project to GitHub.
+2. Go to Vercel.
+3. Import the GitHub repository.
+4. Add environment variables in Vercel:
+
+```env
+VITE_SUPABASE_URL
+VITE_SUPABASE_ANON_KEY
+```
+
+5. Click Deploy.
 
 ---
 
-## 👤 Author
+## 5. Important security note
 
-Built as part of an exploration into building digital platforms for niche communities.
+This MVP allows public reading of sailors, trips, and forum posts.
+It also allows public trip creation.
+
+For a real product, you should add:
+
+- User authentication
+- Profile ownership
+- Moderation
+- Report/block users
+- Private exact location settings
+- Safer Row Level Security policies
 
 ---
+
+## 6. Suggested next features
+
+- Login/signup
+- User profile editing
+- Create sailor profile
+- Trip join requests
+- Messaging
+- Reviews and verification
+- Forum comments
+- Map filters
+- Privacy: approximate location instead of exact coordinates

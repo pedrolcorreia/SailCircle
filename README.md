@@ -1,129 +1,51 @@
-# SailCircle — Sailing Social Platform MVP
+# SailCircle Functional MVP
 
-This is a ready-to-upload MVP for a sailing community website.
+A social sailing platform prototype for discovering sailors, planning trips, requesting to join trips, and discussing sailing topics.
 
-It includes:
+## What works now
 
-- React frontend
-- Interactive OpenStreetMap map using Leaflet
-- Supabase backend schema
-- Sailor profiles
-- Trip planning and trip creation
-- Forum post data model
-- Demo mode if Supabase is not connected
+- Interactive sailor map
+- Trip creation saved to Supabase
+- Trip detail view
+- Request-to-join form saved to Supabase
+- Forum topic creation
+- Forum detail view
+- Forum comments saved to Supabase
+- Working buttons for Explore sailors, Post trip, Create trip, Request to join, Open forum topic, and New topic
 
----
-
-## 1. Run locally
-
-Install Node.js first.
+## Setup
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open the local URL shown in your terminal.
+## Supabase
 
----
+Run the original `supabase/schema.sql` first. Then run:
 
-## 2. Create the backend with Supabase
-
-1. Go to Supabase and create a free project.
-2. Open **SQL Editor**.
-3. Copy everything from:
-
-```bash
-supabase/schema.sql
+```txt
+supabase/upgrade.sql
 ```
 
-4. Paste it into Supabase SQL Editor.
-5. Click **Run**.
+This adds:
 
-This creates:
+- trip detail columns
+- `trip_requests`
+- `forum_comments`
+- insert policies for forum posts and comments
 
-- `sailors`
-- `trips`
-- `forum_posts`
+## Vercel
 
-It also inserts sample data.
-
----
-
-## 3. Connect the frontend to Supabase
-
-1. In Supabase, go to:
-
-```text
-Project Settings > API
-```
-
-2. Copy:
-
-- Project URL
-- anon public key
-
-3. Create a `.env` file in the project root:
-
-```bash
-cp .env.example .env
-```
-
-4. Paste your values:
+Add environment variables:
 
 ```env
-VITE_SUPABASE_URL=https://your-project.supabase.co
-VITE_SUPABASE_ANON_KEY=your-anon-public-key
+VITE_SUPABASE_URL=your Supabase URL
+VITE_SUPABASE_ANON_KEY=your Supabase publishable key
 ```
 
-5. Restart the app:
+Then redeploy.
 
-```bash
-npm run dev
-```
+## Note
 
----
-
-## 4. Deploy for free on Vercel
-
-1. Upload this project to GitHub.
-2. Go to Vercel.
-3. Import the GitHub repository.
-4. Add environment variables in Vercel:
-
-```env
-VITE_SUPABASE_URL
-VITE_SUPABASE_ANON_KEY
-```
-
-5. Click Deploy.
-
----
-
-## 5. Important security note
-
-This MVP allows public reading of sailors, trips, and forum posts.
-It also allows public trip creation.
-
-For a real product, you should add:
-
-- User authentication
-- Profile ownership
-- Moderation
-- Report/block users
-- Private exact location settings
-- Safer Row Level Security policies
-
----
-
-## 6. Suggested next features
-
-- Login/signup
-- User profile editing
-- Create sailor profile
-- Trip join requests
-- Messaging
-- Reviews and verification
-- Forum comments
-- Map filters
-- Privacy: approximate location instead of exact coordinates
+This is still an MVP. Before making it public for real users, add authentication, moderation, spam protection, and privacy settings for exact location.

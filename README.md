@@ -1,51 +1,91 @@
-# SailCircle Functional MVP
+# ⛵ SailCircle
 
-A social sailing platform prototype for discovering sailors, planning trips, requesting to join trips, and discussing sailing topics.
+**A social platform for sailors to connect, plan trips, and explore the sea together.**
 
-## What works now
+---
 
-- Interactive sailor map
-- Trip creation saved to Supabase
-- Trip detail view
-- Request-to-join form saved to Supabase
-- Forum topic creation
-- Forum detail view
-- Forum comments saved to Supabase
-- Working buttons for Explore sailors, Post trip, Create trip, Request to join, Open forum topic, and New topic
+## 🌊 What is this?
 
-## Setup
+SailCircle is a modern web app designed to bring the sailing community together in one place.
 
-```bash
-npm install
-npm run dev
-```
+It allows sailors to:
 
-## Supabase
+* 📍 Discover other sailors on a map
+* ⛵ Plan and join sailing trips
+* 🤝 Find crew or boats
+* 💬 Discuss routes, gear, and experiences
 
-Run the original `supabase/schema.sql` first. Then run:
+Think of it as a mix of **Strava + Airbnb + LinkedIn — but for sailing**.
 
-```txt
-supabase/upgrade.sql
-```
+---
 
-This adds:
+## 🚀 Features (MVP)
 
-- trip detail columns
-- `trip_requests`
-- `forum_comments`
-- insert policies for forum posts and comments
+* Interactive “map-style” sailor discovery
+* Trip planning and joining
+* Crew matching concept
+* Community forum
+* Modern, simple UI
 
-## Vercel
+---
 
-Add environment variables:
+## 🧠 Purpose
 
-```env
-VITE_SUPABASE_URL=your Supabase URL
-VITE_SUPABASE_ANON_KEY=your Supabase publishable key
-```
+The goal of this project is to explore:
 
-Then redeploy.
+* How sailors can connect more easily
+* Whether a social sailing network is valuable
+* How to reduce friction in finding crew and trips
 
-## Note
+---
 
-This is still an MVP. Before making it public for real users, add authentication, moderation, spam protection, and privacy settings for exact location.
+## ⚙️ Tech Stack
+
+* React (frontend)
+* Tailwind CSS (UI)
+* (Optional) Supabase (backend)
+* (Optional) Map integrations (Leaflet / Mapbox)
+
+---
+
+## 🧪 Status
+
+This is an **early prototype / MVP**
+
+* Uses demo data (frontend-only version)
+* Backend integration available but optional
+
+---
+
+## 💡 Vision
+
+Create a global platform where:
+
+* Sailors can meet others nearby
+* Trips are easy to organize
+* The sailing community becomes more accessible
+
+---
+
+## 📬 Feedback
+
+If you’re a sailor or just curious:
+
+> Would you use something like this?
+
+Feel free to reach out or open an issue.
+
+---
+
+## ⚠️ Disclaimer
+
+This is an experimental project and not production-ready.
+Safety, privacy, and verification systems are not yet implemented.
+
+---
+
+## 👤 Author
+
+Built as part of an exploration into building digital platforms for niche communities.
+
+---

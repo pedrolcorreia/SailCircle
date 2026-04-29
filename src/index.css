@@ -1,6 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 html { scroll-behavior: smooth; }
-.leaflet-container { height: 100%; width: 100%; border-radius: 1.5rem; }
-.sail-marker { font-size: 28px; line-height: 28px; filter: drop-shadow(0 8px 14px rgba(0,0,0,.45)); }
+body { margin: 0; background: #020617; }
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  border-radius: 1.5rem;
+}
+
+.sail-marker {
+  font-size: 28px;
+  line-height: 28px;
+  filter: drop-shadow(0 8px 14px rgba(0,0,0,.45));
+}
+
+.trip-marker {
+  font-size: 26px;
+  line-height: 26px;
+  filter: drop-shadow(0 8px 14px rgba(0,0,0,.45));
+}
